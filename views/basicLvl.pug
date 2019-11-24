@@ -1,0 +1,20 @@
+//- basicLevel.pug
+html(lang='en')
+  head 
+    meta(charset='UTF-8')
+    title Basic Level
+    style
+      include style.css
+
+  body
+    h1#levelMaker=author 
+    #mainLevel
+      p#levelText=levelText
+      input#ansBox(type='text' name='answer' value='Answer')
+      br
+      input#submitButton(type='submit' value='Submit' onclick='sendAns()')
+    #alert
+    script
+      include script.js
+
+

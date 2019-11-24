@@ -1,0 +1,20 @@
+* {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+div {
+  border-style: dashed;
+  padding-left: 35%;
+  height: 70%;
+}
+input {
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+#levelText{
+  height: 30%;
+  width: 30%;
+  overflow-x:hidden;
+  overflow-y: scroll;
+}

@@ -1,0 +1,16 @@
+body {
+  font-family: sans-serif;
+  background-color: #39d48e;
+  color: #e6fff3;
+}
+h1 {
+  position: absolute;
+  left: 20%;
+  top: 30%;
+}
+
+h2 {
+  position: absolute;
+  left: 20%;
+  top: 45%;
+}
