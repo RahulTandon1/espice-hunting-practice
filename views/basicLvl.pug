@@ -2,17 +2,17 @@
 html(lang='en')
   head 
     meta(charset='UTF-8')
-    title Basic Level
+    title=name
     style
       include style.css
-
   body
-    h1#levelMaker=author 
+    h1#levelName=name
+    p#levelMaker level made by #{author} 
     #mainLevel
       p#levelText=levelText
       input#ansBox(type='text' name='answer' value='Answer')
       br
-      input#submitButton(type='submit' value='Submit' onclick='sendAns()')
+      button#submitButton(type='button' onclick='sendAns()') Submit
     #alert
     script
       include script.js

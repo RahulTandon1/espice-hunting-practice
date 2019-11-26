@@ -7,8 +7,7 @@ app.use(express.urlencoded( { extended: true } ));
 
 app.set('view engine', 'pug');
 app.set('views', './views')
-// for routers app.use()
-
+// for routers app.use() 
 
 // MONGODB stuff
 
@@ -18,7 +17,8 @@ mongoose.connect("mongodb://localhost/espiceHuntingPractice")
 .catch(err => console.log(err))
 
 const levelSchema = new mongoose.Schema({
-    author: String, 
+    name: String, 
+    author: String,
     levelText: String,
     answer: String,
     endpoint: {type: String, default: ""},
@@ -26,9 +26,10 @@ const levelSchema = new mongoose.Schema({
 });
 const Level = mongoose.model('Level', levelSchema); // modelling level schema
 
-async function createLevel(author, text, answer) {
+async function createLevel(name, author, text, answer) {
     try {
         const level = new Level ({
+            name: name,
             author: author, 
             levelText: text,
             answer: answer
@@ -60,7 +61,7 @@ async function addEndpoint(objID) {
 
 // makes level in db
 app.post('/api/makeLevel', (req, res) => {
-    createLevel(req.body.author, req.body.levelText, req.body.answer)
+    createLevel(req.body.name, req.body.author, req.body.levelText, req.body.answer)
     .then((madeLvl) => {
         addEndpoint(madeLvl._id)
         .then(endpoint => res.send(JSON.stringify({'endpoint': endpoint})))
@@ -75,6 +76,7 @@ app.get('/api/getLevel/:endpoint', (req, res) => {
     .then( (lvl) => {
         console.log(lvl)
         obj = {
+            name: lvl.name,
             author: lvl.author, 
             levelText: lvl.levelText
         }

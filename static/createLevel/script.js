@@ -1,9 +1,11 @@
 async function sendLevel() {
+    let name = document.getElementById('name').value
     let author = document.getElementById('author').value
     let levelText = document.getElementById('levelText').value
     let answer = document.getElementById('answer').value
 
     let lvlObj = {
+        'name': name,
         'author': author, 
         'levelText': levelText,
         'answer': answer
@@ -31,7 +33,7 @@ async function sendLevel() {
 function popUp(endpoint) {
     url = "/api/getLevel/" + String(endpoint)
     foo = document.getElementById('endpointPopUp')
-    foo.innerText = "Your Level's URL is " + url
+    foo.innerHTML = `Your Level's URL is <a href='../.${url} '> ${url} </a>`
     foo.style.visibility = "visible";
 }
 

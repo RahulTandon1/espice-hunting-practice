@@ -4,6 +4,7 @@
   }
   
   div {
+    top: 20%;
     border-style: dashed;
     padding-left: 35%;
     height: 70%;
@@ -13,8 +14,8 @@
     margin-bottom: 1%;
   }
   #levelText{
-    height: 30%;
-    width: 30%;
+    height: 10%;
+    width: 50%;
     overflow-x:hidden;
     overflow-y: scroll;
   }

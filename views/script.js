@@ -39,3 +39,11 @@ async function sendAns()
     console.log(err)
   }
 }
+
+// adding enter key functionality
+let ansBox = document.getElementById('ansBox')
+ansBox.addEventListener('keypress', (e) => {
+  if (e.keyCode == 13) {
+    sendAns()
+  }
+})
