@@ -8,15 +8,15 @@ body {
 
 #levelName {
   position: absolute;
-  left: 30%;
-  top: 5%;
-  font-size: 3em;
+  left: 23%;
+  top: 3%;
+  font-size: 4em;
 }
 
 #levelMaker {
   position: absolute;
   right: 15%;
-  top: 12%;
+  top: 15%;
   font-size: 2em;
 }
 

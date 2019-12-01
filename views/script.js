@@ -9,7 +9,7 @@ function answerAlert(ansStat) {
   foo = document.getElementById("alert")
   foo.innerText = ansStat + ' answer';
   foo.style.visibility = "visible"
-  setTimeout( () => { foo.style.visibility = "hidden" }, 3000)
+  setTimeout( () => { foo.style.visibility = "hidden" }, 5000)
 }
 
 // sends answer to backend
