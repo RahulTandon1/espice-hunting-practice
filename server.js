@@ -12,7 +12,8 @@ app.set('views', './views')
 // MONGODB stuff
 
 const mongoose = require('mongoose')
-mongoose.connect("mongodb://localhost/espiceHuntingPractice")
+mongoose.connect(`mongodb+srv://kidnikid:${process.env.pass}@espicehuntingpractice-qwqid.mongodb.net/espiceHuntingPractice?retryWrites=true&w=majority`, 
+{ useNewUrlParser: true, useFindAndModify: false  })
 .then( () => console.log("Connected to DB"))
 .catch(err => console.log(err))
 
