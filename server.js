@@ -101,4 +101,4 @@ app.post('/api/checkAns/', (req, res) => {
     .catch( err => res.send(err))
 })
 
-app.listen(3000 || process.env.PORT, () => console.log('listening of port 3000')) 
+app.listen(process.env.PORT || 3000, () => console.log('listening of port 3000')) 
