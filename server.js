@@ -12,6 +12,7 @@ app.set('views', './views')
 // MONGODB stuff
 
 const mongoose = require('mongoose')
+console.log(`pass: ${process.env.pass}`)
 mongoose.connect(`mongodb+srv://kidnikid:${process.env.pass}@espicehuntingpractice-qwqid.mongodb.net/espiceHuntingPractice?retryWrites=true&w=majority`, 
 { useNewUrlParser: true, useFindAndModify: false  })
 .then( () => console.log("Connected to DB"))
@@ -69,6 +70,10 @@ app.post('/api/makeLevel', (req, res) => {
         .catch(err => res.send(err))
     })
     .catch((err) => res.send(err))
+})
+
+app.get('/', (req, res) => {
+    res.redirect('/createLevel')
 })
 
 // gets level stuff from api so that front end has Question and Level Author
