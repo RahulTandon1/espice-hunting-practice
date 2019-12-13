@@ -1,8 +1,10 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 app.use(express.json()); // gets the json working
 app.use(express.static('static'));
 app.use(express.urlencoded( { extended: true } ));
+app.use(cors())
 
 
 app.set('view engine', 'pug');
@@ -103,7 +105,7 @@ app.post('/api/checkAns/', (req, res) => {
         } 
         res.append('Access-Control-Allow-Origin', ['*'])
         res.send(JSON.stringify({'answerStatus': ansStat}))
-        console.dir(res.headersSent) // true
+        console.dir(res.headersSent)
     })
     .catch( err => res.send(err))
 })
