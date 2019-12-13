@@ -103,9 +103,7 @@ app.post('/api/checkAns/', (req, res) => {
         if (lvl.answer === req.body.answer){
             ansStat = 'correct'
         } 
-        res.append('Access-Control-Allow-Origin', ['*'])
         res.send(JSON.stringify({'answerStatus': ansStat}))
-        console.dir(res.headersSent)
     })
     .catch( err => res.send(err))
 })
