@@ -95,14 +95,15 @@ app.get('/api/getLevel/:endpoint', (req, res) => {
 })
 
 app.post('/api/checkAns/', (req, res) => {
-    res.append('Access-Control-Allow-Origin', ['*'])
     ansStat = 'wrong'
     Level.findOne({endpoint: req.body.endpoint})
     .then((lvl) => {
         if (lvl.answer === req.body.answer){
             ansStat = 'correct'
         } 
+        res.append('Access-Control-Allow-Origin', ['*'])
         res.send(JSON.stringify({'answerStatus': ansStat}))
+        console.dir(res.headersSent) // true
     })
     .catch( err => res.send(err))
 })
