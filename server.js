@@ -95,6 +95,7 @@ app.get('/api/getLevel/:endpoint', (req, res) => {
 })
 
 app.post('/api/checkAns/', (req, res) => {
+    res.set('Access-Control-Allow-Origin', ['*'])
     ansStat = 'wrong'
     Level.findOne({endpoint: req.body.endpoint})
     .then((lvl) => {
