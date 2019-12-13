@@ -79,7 +79,7 @@ app.get('/', (req, res) => {
 })
 // temporary link for a level
 app.get('/api/getLevel/haveli', (req, res) => {
-    res.send('0.21951219512')
+    res.send('4.55555555556')
 })
 
 // gets level stuff from api so that front end has Question and Level Author
