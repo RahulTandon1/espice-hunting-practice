@@ -77,6 +77,10 @@ app.post('/api/makeLevel', (req, res) => {
 app.get('/', (req, res) => {
     res.redirect('/createLevel')
 })
+// temporary link for a level
+app.get('/api/getLevel/haveli', (req, res) => {
+    res.send('0.21951219512')
+})
 
 // gets level stuff from api so that front end has Question and Level Author
 app.get('/api/getLevel/:endpoint', (req, res) => {
@@ -88,13 +92,15 @@ app.get('/api/getLevel/:endpoint', (req, res) => {
             author: lvl.author, 
             levelText: lvl.levelText
         }
-        res.render('basicLvl', obj)
+        res.render('fake', obj)
     })
     .catch( (err) => {
         console.log('Err at getLevel', err)
         res.redirect('/notFound/index.html')
     })
 })
+
+
 
 app.post('/api/checkAns/', (req, res) => {
     ansStat = 'wrong'
