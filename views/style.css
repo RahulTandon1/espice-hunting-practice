@@ -27,7 +27,7 @@ body {
   transform: translate(-50%, -50%);
   border-style: dashed;
   padding: 5%;
-  font-size: 2em;
+  font-size: 1.25em;
 }
 
 #ansBox {
