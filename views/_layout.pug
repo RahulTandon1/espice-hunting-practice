@@ -1,6 +1,9 @@
 //- layout.pug
 html(lang='en')
   head
+    script(src="/analytics.js" type="text/javascript")
+    script(async src='https://www.google-analytics.com/analytics.js')
+
     meta(charset='UTF-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     link(rel='shortcut icon' type='image/x-icon' href='/favicon.ico')
@@ -19,4 +22,5 @@ html(lang='en')
     div(class="bg-light text-dark w-100")
       block content
     footer(class="pt-1 pb-1"  style="text-align: center; font-size: 1.25rem;") Made with love by Rahul bhaiya
+
         

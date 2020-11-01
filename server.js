@@ -17,7 +17,7 @@ app.set('view engine', 'pug');
 app.set('views', './views')
 
 // MONGODB stuff
-
+// console.log(`db url is ${process.env.db_url}`)
 mongoose.connect(process.env.db_url, 
 { useNewUrlParser: true, useFindAndModify: false  })
 .then( () => console.log("Connected to DB"))
