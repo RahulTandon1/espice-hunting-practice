@@ -1,0 +1,16 @@
+//- listLvls.pug
+extends _layout.pug
+
+block additionalHeadTags    
+    title="All Levels"
+
+block content
+    h1(class="mx-auto pt-3 pb-3" style="font-size: 2.5rem; text-align: center;")
+        = "All Levels"
+    div(class="card text-white bg-info mx-auto" style="width: 40rem;")
+        ul(class="list-group list-group-flush")
+            each level in levels
+                li(class="list-group-item text-dark")
+                    - var linkHref = `/api/getLevel/${String(level._id).substr(20,4)}`
+                    a(href=`${linkHref}`)= level.name
+

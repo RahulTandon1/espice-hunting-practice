@@ -1,22 +1,18 @@
 //- basicLevel.pug
-html(lang='en')
-  head 
-    meta(charset='UTF-8')
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    link(rel='shortcut icon' type='image/x-icon' href='../static/favicon.ico')
-    title=name
-    style
-      include style.css
-  body
-    h1#levelName=name
-    p#levelMaker level made by #{author} 
-    #mainLevel
-      p#levelText=levelText
-      input#ansBox(type='text' name='answer' value='Answer')
-      br
-      button#submitButton(type='button' onclick='sendAns()') Submit
-    #alert
-    script
-      include script.js
+extends _layout.pug
+block additionalHeadTags 
+  link(rel='stylesheet' type="text/css" href='/style.css')
+  title=name
+
+block content
+  h1(class="m-3")#levelName=name
+  p(class="m-3")#levelMaker level made by #{author} 
+  #mainLevel
+    p#levelText=levelText
+    input#ansBox(type='text' name='answer' placeholder='Answer')
+    br
+    button#submitButton(type='button' onclick='sendAns()') Submit
+  #alert
+  script(src="/script.js" type="text/javascript")
 
 
