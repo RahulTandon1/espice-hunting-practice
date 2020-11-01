@@ -17,9 +17,8 @@ app.set('view engine', 'pug');
 app.set('views', './views')
 
 // MONGODB stuff
-// console.log(`pass: ${process.env.pass}`)
 
-mongoose.connect(`mongodb+srv://kidnikid:${process.env.pass}@espicehuntingpractice-qwqid.mongodb.net/espiceHuntingPractice?retryWrites=true&w=majority`, 
+mongoose.connect(process.env.db_url, 
 { useNewUrlParser: true, useFindAndModify: false  })
 .then( () => console.log("Connected to DB"))
 .catch(err => console.log(err))
