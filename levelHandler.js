@@ -1,4 +1,3 @@
-const { model } = require("mongoose");
 const Level = require("./levelModel");
 const _ = require('lodash');
 
@@ -38,7 +37,7 @@ getAllLevels = async () => {
     try {
         let levels = await Level
         .find()
-        // .limit(10)
+        .limit(15)
         .sort({ date: 1})
         .select({ name: 1, author: 1, levelText:1 });
     
