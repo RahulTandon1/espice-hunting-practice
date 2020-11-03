@@ -38,16 +38,20 @@ router.get('/getLevel/:endpoint', (req, res) => {
 
 
 
-router.post('/checkAns/', (req, res) => {
-    ansStat = 'wrong'
-    Level.findOne({endpoint: req.body.endpoint})
-    .then((lvl) => {
-        if (lvl.answer === req.body.answer){
-            ansStat = 'correct'
-        } 
-        res.send(JSON.stringify({'answerStatus': ansStat}))
-    })
-    .catch( err => res.send(err))
+router.post('/checkAns/', async (req, res) => {
+    try {
+        const isCorrect = await isAnsCorrect(req.body.endpoint, req.body.answer);
+
+        if (isCorrect){
+            res.send(JSON.stringify({'answerStatus': 'correct'}))
+        }
+        else {
+            res.send(JSON.stringify({'answerStatus': 'incorrect'}))
+        }
+    }
+    catch(err) {
+        res.error(err)
+    }
 })
 
 router.get('/listLevels', async (req, res) => {

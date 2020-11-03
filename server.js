@@ -3,7 +3,7 @@ const app = express()
 const cors = require('cors')
 const levels = require('./levelRouter')
 const mongoose = require('mongoose')
-const levelModel = require('./levelModel');
+
 
 // MIDDLEWARE functions
 // for cross site scripting stuff
@@ -27,6 +27,5 @@ app.get('/', (req, res) => {
     res.redirect('/api/listLevels')
 })
 
-// ENDPOINTS
 
 app.listen(process.env.PORT || 3000, () => console.log('listening of port 3000')) 

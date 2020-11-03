@@ -1,13 +1,16 @@
 const Level = require("./levelModel");
 const _ = require('lodash');
+const bcrypt = require('bcrypt')
 
 createLevel = async (name, author, text, answer) => {
     try {
+        const salt = await bcrypt.genSalt(10);
+        const hashed = await bcrypt.hash(answer, salt);
         const level = new Level ({
             name: name,
             author: author, 
             levelText: text,
-            answer: answer
+            answer: hashed
         });
         
         const result = await level.save();
@@ -51,7 +54,19 @@ getAllLevels = async () => {
     }
 }    
 
+isAnsCorrect = async(endpoint, answer) => {
+    try {
+        const level = await Level.findOne({endpoint: endpoint})
+        const isValid = await bcrypt.compare(answer, level.answer);
+        return isValid
+    }
+    catch(err) {
+        console.error(err)
+        return err
+    }
 
+}
 module.exports.createLevel=createLevel;
 module.exports.addEndpoint=addEndpoint;
 module.exports.getAllLevels=getAllLevels;
+module.exports.isAnsCorrect = isAnsCorrect;
