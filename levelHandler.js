@@ -40,7 +40,7 @@ getAllLevels = async () => {
     try {
         let levels = await Level
         .find()
-        .limit(15)
+        //.limit()
         .sort({ date: 1})
         .select({ name: 1, author: 1, levelText:1 });
     
